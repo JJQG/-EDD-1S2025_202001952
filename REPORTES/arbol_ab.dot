@@ -1,0 +1,8 @@
+digraph G {
+node [shape=record];
+47891719 [label="
+<f0> |Id: 2, |Id Servicio: 25, Total: 456|<f1>"];47891719 -> 28372289;
+28372289 [label="
+<f0> |Id: 1, |Id Servicio: 50, Total: 456|<f1>"];47891719 -> 54024015;
+54024015 [label="
+<f0> |Id: 3, |Id Servicio: 30, Total: 456||<f1> |Id: 4, |Id Servicio: 16, Total: 456||<f2> |Id: 5, |Id Servicio: 60, Total: 456|<f3>"];}

@@ -1,0 +1,32 @@
+digraph ArbolAVL {
+  rankdir=TB;
+  8 [label="ID: 8\nRepuesto: Correa de distribución\nCosto: 80" shape=box];
+  8 -> 4;
+  4 [label="ID: 4\nRepuesto: Pastillas de freno traseras\nCosto: 45.3" shape=box];
+  4 -> 2;
+  2 [label="ID: 2\nRepuesto: Bujías\nCosto: 15.75" shape=box];
+  2 -> 1;
+  1 [label="ID: 1\nRepuesto: motor\nCosto: 25.5" shape=box];
+  2 -> 3;
+  3 [label="ID: 3\nRepuesto: Frenos delanteros\nCosto: 60" shape=box];
+  4 -> 6;
+  6 [label="ID: 6\nRepuesto: Aceite de motor\nCosto: 18.6" shape=box];
+  6 -> 5;
+  5 [label="ID: 5\nRepuesto: Amortiguadores\nCosto: 95.2" shape=box];
+  6 -> 7;
+  7 [label="ID: 7\nRepuesto: Filtro de aire\nCosto: 22.1" shape=box];
+  8 -> 12;
+  12 [label="ID: 12\nRepuesto: Espejos laterales\nCosto: 50" shape=box];
+  12 -> 10;
+  10 [label="ID: 10\nRepuesto: Batería\nCosto: 100.5" shape=box];
+  10 -> 9;
+  9 [label="ID: 9\nRepuesto: Radiador\nCosto: 150" shape=box];
+  10 -> 11;
+  11 [label="ID: 11\nRepuesto: Cables de encendido\nCosto: 30.4" shape=box];
+  12 -> 14;
+  14 [label="ID: 14\nRepuesto: Suspensión trasera\nCosto: 120" shape=box];
+  14 -> 13;
+  13 [label="ID: 13\nRepuesto: Manguera de radiador\nCosto: 20.8" shape=box];
+  14 -> 15;
+  15 [label="ID: 15\nRepuesto: Bombas de freno\nCosto: 75" shape=box];
+}
