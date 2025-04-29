@@ -5,7 +5,7 @@ using System.Text;
 
 public class graficar
 {
-    public void graficosSimples(ListaSimple lista)
+    /*public void graficosSimples(ListaSimple lista)
     {
         StringBuilder dot = new StringBuilder();
         dot.AppendLine("digraph ListaSimplementeEnlazada{");
@@ -31,7 +31,7 @@ public class graficar
         
 
         archivoGrafica("REPORTES/lista_Simple.dot", "REPORTES/lista_Simple.svg", dot.ToString());
-    }
+    }*/
 
 
     public void graficosDobles(ListaDoble lista)

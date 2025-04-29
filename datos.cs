@@ -13,7 +13,7 @@ public class datos
     
 
 
-    public void UsuariosMasivos(ListaSimple l )
+   /* public void UsuariosMasivos(ListaSimple l )
  {
         string filePath = le.leer();
 
@@ -31,7 +31,7 @@ public class datos
         //dotnet Console.WriteLine("hola");
     }
 
-
+*/
 
 public void VehiculosMasivos(ListaDoble d)
  {
