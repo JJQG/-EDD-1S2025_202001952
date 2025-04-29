@@ -6,7 +6,7 @@ digraph ArbolAVL {
   4 -> 2;
   2 [label="ID: 2\nRepuesto: Bujías\nCosto: 15.75" shape=box];
   2 -> 1;
-  1 [label="ID: 1\nRepuesto: motor\nCosto: 25.5" shape=box];
+  1 [label="ID: 1\nRepuesto: Filtro de aceite\nCosto: 25.5" shape=box];
   2 -> 3;
   3 [label="ID: 3\nRepuesto: Frenos delanteros\nCosto: 60" shape=box];
   4 -> 6;

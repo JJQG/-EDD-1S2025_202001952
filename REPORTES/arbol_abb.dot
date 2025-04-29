@@ -1,12 +1,3 @@
 digraph G {
   rankdir=TB;
-  50 [label="ID: 50\n Vehiculo: 4 || Repuesto: 43 \n  546\n Costos: 456"shape=box];
-    50 -> 25;
-  25 [label="ID: 25\n Vehiculo: 4 || Repuesto: 43 \n  546\n Costos: 456"shape=box];
-    25 -> 16;
-  16 [label="ID: 16\n Vehiculo: 4 || Repuesto: 2 \n  546\n Costos: 456"shape=box];
-    25 -> 30;
-  30 [label="ID: 30\n Vehiculo: 4 || Repuesto: 43 \n  546\n Costos: 456"shape=box];
-    50 -> 60;
-  60 [label="ID: 60\n Vehiculo: 4 || Repuesto: 2 \n  546\n Costos: 456"shape=box];
 }

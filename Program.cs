@@ -5,19 +5,19 @@ using Gtk;
 class Program
 {
     public static datos da = new datos();
-    //public static ListaSimple l = new ListaSimple();
+    public static Blockchain l = new Blockchain();
 
     public static ListaDoble d = new ListaDoble();
     public static ArbolAVL a = new ArbolAVL(); 
     public static ArbolBinarioBusqueda bus = new ArbolBinarioBusqueda();
-    public static ArbolB bb = new ArbolB();
+    //public static ArbolB bb = new ArbolB();
     public static Leer le = new Leer();
 
     
      public static string texto = "";
     static void Main()
     {
-        //l.CargarDesdeArchivoJson("archivosJson/listaSimple.json");
+        l.CargarDesdeArchivoJson("archivosJson/listaSimple.json");
         d.CargarDesdeArchivoJson("archivosJson/listaDoble.json");
         a.CargarDesdeArchivoJson("archivosJson/arbolAVL.json");
         bus.CargarDesdeArchivoJson("archivosJson/arbolBB.json");
@@ -35,17 +35,6 @@ class Program
     //////////////////////////////////////////////////////////
     ///
     
-         Blockchain myBlockchain = new Blockchain();
-
-        // Simulación de usuarios
-        myBlockchain.insertar(1,"Ana", "Torres","ana@correo.com", 25, "abc123");
-        myBlockchain.insertar(2, "Luis",  "Pérez",  "luis@correo.com",  30, "123luis");
-        myBlockchain.insertar(3, "Carla",  "Ruiz", "carla@correo.com", 22, "cRuiz2023");
-        myBlockchain.insertar(4, "pepe",  "Alvarez", "pepe@correo.com", 22, "ElPePe");
-
-        myBlockchain.imprimir();
-
-        
     
     }
 
@@ -84,7 +73,7 @@ class Program
             b.abrir(menu());
             
    
-        //}else if(l.Ingresar(usu, contra)){
+        }else if(l.Ingresar(usu, contra)){
             b.abrir(menuUsuario());
             
         }else{
@@ -145,7 +134,7 @@ class Program
         Botones b2 = new Botones("Cargar",100,50,200,200);
         b2.Clicked += (sender, e) => {
             if(eleccion == "Cargar Usuarios"){
-              //  da.UsuariosMasivos(l);
+                da.UsuariosMasivos(l);
             }else if(eleccion == "Cargar Vehiculos"){
                 da.VehiculosMasivos(d);
             }else if(eleccion == "Cargar Repuestos"){
@@ -173,7 +162,7 @@ class Program
         Leer le = new Leer();
         Ventana CargaMassiva = new Ventana("Gestion",500,450);
 
-         ComboBox combo = new ComboBox("Gestionar Usuarios", "Gestionar Vehiculos", null, 200, 50, 100, 50);
+         ComboBox combo = new ComboBox("Gestionar Usuarios", "Gestionar Vehiculos", "", 200, 50, 100, 50);
         fix.Put(combo,combo.x,combo.y);
         combo.Changed += (sender, e) => {
             eleccion = combo.ActiveText;
@@ -210,8 +199,7 @@ class Program
     Fixed fix = new Fixed();
 
     Botones b = new Botones("Buscar", 100, 50, 50, 650);
-    Botones b1 = new Botones("Editar", 100, 50, 200, 650);
-    Botones b2 = new Botones("Eliminar", 100, 50, 350, 650);
+    Botones b1 = new Botones("Insertar", 100, 50, 200, 650);
 
     Labels labId = new Labels("ID", 50, 50);
     Labels labNombre = new Labels("Nombre", 50, 150);
@@ -236,26 +224,20 @@ class Program
 
     b.Clicked += (sender, e) =>
     {  
-    /*    if(l.BuscarNodo(Convert.ToInt32(txtId.Text)) != null){
+        if(l.BuscarNodo(Convert.ToInt32(txtId.Text)) != null){
             txtNombre.Text = l.BuscarNodo(Convert.ToInt32(txtId.Text)).Nombres; 
             txtApellido.Text = l.BuscarNodo(Convert.ToInt32(txtId.Text)).Apellidos ;
             txtEdad.Text = l.BuscarNodo(Convert.ToInt32(txtId.Text)).Edad.ToString() ;
             txtCorreo.Text = l.BuscarNodo(Convert.ToInt32(txtId.Text)).Correo ;
             txtContrasenia.Text = l.BuscarNodo(Convert.ToInt32(txtId.Text)).Contrasenia ;
         }
-        */
+        
     };
 
     b1.Clicked += (sender, e) =>
     {  
-           // l.Editar(Convert.ToInt32(txtId.Text), txtNombre.Text, txtApellido.Text, txtCorreo.Text, Convert.ToInt32(txtEdad.Text),txtContrasenia.Text);
+           da.crearUsusario(l,Convert.ToInt32(txtId.Text), txtNombre.Text, txtApellido.Text, txtCorreo.Text, Convert.ToInt32(txtEdad.Text),txtContrasenia.Text);
             
-    };
-    b2.Clicked += (sender, e) => {
-            if(Convert.ToInt32(txtId.Text) != null){
-          //  l.Eliminar(Convert.ToInt32(txtId.Text));
-            }
-
     };
 
     fix.Put(txtId, txtId.x, txtId.y);
@@ -267,7 +249,6 @@ class Program
 
     fix.Put(b, b.x, b.y);
     fix.Put(b1, b1.x, b1.y);
-    fix.Put(b2, b2.x, b2.y);
 
     GestionUsuarios.Add(fix);
     GestionUsuarios.ShowAll();
@@ -491,7 +472,7 @@ public static Ventana generarServicio(){
 
         Botones b = new Botones("Ingreso Manual",100,50,200,550);
         b.Clicked += (sender, e) => da.generarServicio(bus,Int32.Parse(txtId.Text), Int32.Parse(txtNombre.Text), Int32.Parse(txtApellido.Text), txtCorreo.Text, Convert.ToDouble(txtContrasenia.Text));
-        b.Clicked += (sender, e) => da.generarFactura(bb,bb.generarID(),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text));
+       // b.Clicked += (sender, e) => da.generarFactura(bb,bb.generarID(),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text));
 
         fix.Put(txtId, txtId.x,txtId.y);
         fix.Put(txtNombre, txtNombre.x,txtNombre.y);
@@ -509,11 +490,11 @@ public static Ventana generarServicio(){
     }
 
     public static void Reportes(){
-      //  da.g.graficosSimples(l);
+        da.g.graficosSimples(l);
         da.g.graficosDobles(d);
         da.g.graficosAVL(a);
         da.g.graficosABB(bus);
-        da.g.graficosAB(bb);
+        //da.g.graficosAB(bb);
 
     }
 
@@ -722,17 +703,17 @@ public static Ventana visualizarFacturas(){
 
     b.Clicked += (sender, e) =>
     {  
-        if(bb.Buscar(Convert.ToInt32(txtId.Text)) != null){
+      /*  if(bb.Buscar(Convert.ToInt32(txtId.Text)) != null){
             txtNombre.Text = Convert.ToString(bb.Buscar(Convert.ToInt32(txtId.Text)).IdServicio); 
             txtApellido.Text = Convert.ToString(bb.Buscar(Convert.ToInt32(txtId.Text)).Total );
-        }
+        }*/
         
     };
 
    
     b2.Clicked += (sender, e) => {
             if(Convert.ToInt32(txtId.Text) != null){
-            bb.Eliminar(Convert.ToInt32(txtId.Text));
+          //  bb.Eliminar(Convert.ToInt32(txtId.Text));
             }
 
     };

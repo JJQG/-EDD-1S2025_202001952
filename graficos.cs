@@ -5,25 +5,25 @@ using System.Text;
 
 public class graficar
 {
-    /*public void graficosSimples(ListaSimple lista)
+    public void graficosSimples(Blockchain lista)
     {
         StringBuilder dot = new StringBuilder();
         dot.AppendLine("digraph ListaSimplementeEnlazada{");
         dot.AppendLine("  rankdir=LR;"); 
             
-            Nodo actual = lista.cabeza;
+            Block actual = lista.cabeza;
             int nodoId = 0;
 
             while (actual != null)
             {
-            dot.AppendLine($"  node{nodoId} [label=\"{"ID: "+actual.ID}\n{"Nombre: "+actual.Nombres}\n{"Correo: "+actual.Correo}\n{"Edad: "+actual.Edad}\" shape = box];");
+            dot.AppendLine($"  node{nodoId} [label=\"{"INDEX: "+actual.Index}\n{"Time Stamp: "+actual.Timestamp}\n{"DATA: {ID: "+actual.ID+", Nombre: "+actual.Nombres+", Correo: "+actual.Correo+", Edad: "+actual.Edad+"}"} \n{"Nonce: "+actual.Nonce}\n{"Prev Hash: "+actual.ultimoHash}\n{"HASH: "+actual.Hash}\" shape = box];");
             
-            if (actual.Siguiente != null)
+            if (actual.siguiente != null)
             {
                 dot.AppendLine($"  node{nodoId} -> node{nodoId + 1};");
             }
             
-            actual = actual.Siguiente;
+            actual = actual.siguiente;
             nodoId++;
         }
 
@@ -31,7 +31,7 @@ public class graficar
         
 
         archivoGrafica("REPORTES/lista_Simple.dot", "REPORTES/lista_Simple.svg", dot.ToString());
-    }*/
+    }
 
 
     public void graficosDobles(ListaDoble lista)
@@ -137,7 +137,7 @@ private void GenerarDOTArbolBB(NodoBB nodo, ref StringBuilder dot)
    
 }
 
-public void graficosAB(ArbolB arbol)
+/* public void graficosAB(ArbolB arbol)
     {
 
         
@@ -151,7 +151,7 @@ public void graficosAB(ArbolB arbol)
         archivoGrafica("REPORTES/arbol_ab.dot", "REPORTES/arbol_ab.svg", dot.ToString());
     }
 
-    private void  GenerarDOTArbolB(NodoB nodo, ref StringBuilder dot)
+   private void  GenerarDOTArbolB(NodoB nodo, ref StringBuilder dot)
     {
         string nodoID = nodo.GetHashCode().ToString();
 
@@ -179,7 +179,7 @@ public void graficosAB(ArbolB arbol)
                 GenerarDOTArbolB(nodo.Hijos[i], ref dot);
             }
         }
-    }
+    }*/
 
     public void archivoGrafica(string ruta, string guardar, string contenido){
 

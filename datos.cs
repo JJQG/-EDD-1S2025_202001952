@@ -13,7 +13,7 @@ public class datos
     
 
 
-   /* public void UsuariosMasivos(ListaSimple l )
+    public void UsuariosMasivos(Blockchain l )
  {
         string filePath = le.leer();
 
@@ -23,15 +23,16 @@ public class datos
        
     
     }
-    public void crearUsusario(ListaSimple l ,int id, string nombre, string apellido, string correo, int edad,string contrasena){
+    public void crearUsusario(Blockchain l ,int id, string nombre, string apellido, string correo, int edad,string contrasena){
         
-        l.Insertar(id, nombre,apellido,correo, edad, contrasena);
-        g.graficosSimples(l);
+        l.insertar(id, nombre,apellido,correo, edad, contrasena);
+        l.GuardarEnArchivoJson("archivosJson/listaSimple.json");
+        //g.graficosSimples(l);
         //l.Imprimir();
         //dotnet Console.WriteLine("hola");
     }
 
-*/
+
 
 public void VehiculosMasivos(ListaDoble d)
  {
@@ -69,11 +70,11 @@ public void VehiculosMasivos(ListaDoble d)
         //g.graficosABB(bus);
     }
 
-    public void generarFactura(ArbolB b ,int id, int IdServicio, double Total){
+    /*public void generarFactura(ArbolB b ,int id, int IdServicio, double Total){
         
         b.Insertar( id,  IdServicio,  Total );
         //g.graficosABB(b);
-    }
+    }*/
 
     
 }
