@@ -10,7 +10,7 @@ class Program
     public static ListaDoble d = new ListaDoble();
     public static ArbolAVL a = new ArbolAVL(); 
     public static ArbolBinarioBusqueda bus = new ArbolBinarioBusqueda();
-    //public static ArbolB bb = new ArbolB();
+    public static ArbolMerkle m = new ArbolMerkle();
     public static Leer le = new Leer();
 
     
@@ -472,7 +472,7 @@ public static Ventana generarServicio(){
 
         Botones b = new Botones("Ingreso Manual",100,50,200,550);
         b.Clicked += (sender, e) => da.generarServicio(bus,Int32.Parse(txtId.Text), Int32.Parse(txtNombre.Text), Int32.Parse(txtApellido.Text), txtCorreo.Text, Convert.ToDouble(txtContrasenia.Text));
-       // b.Clicked += (sender, e) => da.generarFactura(bb,bb.generarID(),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text));
+        b.Clicked += (sender, e) => da.generarFactura(m,Int32.Parse(txtId.Text),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text));
 
         fix.Put(txtId, txtId.x,txtId.y);
         fix.Put(txtNombre, txtNombre.x,txtNombre.y);
@@ -494,7 +494,7 @@ public static Ventana generarServicio(){
         da.g.graficosDobles(d);
         da.g.graficosAVL(a);
         da.g.graficosABB(bus);
-        //da.g.graficosAB(bb);
+        da.g.graficosM(m);
 
     }
 

@@ -137,49 +137,62 @@ private void GenerarDOTArbolBB(NodoBB nodo, ref StringBuilder dot)
    
 }
 
-/* public void graficosAB(ArbolB arbol)
+
+
+    public void graficosM(ArbolMerkle arbol) {
+
+    StringBuilder dot = new StringBuilder();
+    dot.AppendLine("digraph G {");
+    dot.AppendLine("node [shape=record, style=filled, fillcolor=lightgray];");
+
+    if (arbol.Root != null)
     {
-
-        
-        StringBuilder dot = new StringBuilder();
-        dot.AppendLine("digraph G {");
-        dot.AppendLine("node [shape=record];");
-
-         GenerarDOTArbolB(arbol.raiz, ref dot);
-
-        dot.AppendLine("}");
-        archivoGrafica("REPORTES/arbol_ab.dot", "REPORTES/arbol_ab.svg", dot.ToString());
+        GenerarDOTMerkle(arbol.Root, ref dot);
     }
 
-   private void  GenerarDOTArbolB(NodoB nodo, ref StringBuilder dot)
+    dot.AppendLine("}");
+    archivoGrafica("REPORTES/arbol_merkle.dot", "REPORTES/arbol_merkle.svg", dot.ToString());
+    }
+
+
+
+    private void GenerarDOTMerkle(NodoM nodo, ref StringBuilder dot)
+{
+    string nodoId = "node" + nodo.GetHashCode().ToString(); // ID único
+
+    string etiqueta = "";
+
+    if (nodo.f != null)
     {
-        string nodoID = nodo.GetHashCode().ToString();
+        etiqueta = $"ID: {nodo.f.Id}\\nServicio: {nodo.f.IdServicio}\\nTotal: {nodo.f.Total}\\nHash: {nodo.Hash}";
+    }
+    else
+    {
+        etiqueta = $"Hash: {nodo.Hash}";
+    }
 
-        dot.AppendLine($"{nodoID} [label=\"");
+    dot.AppendLine($"  {nodoId} [label=\"{etiqueta}\"];");
 
-        for (int i = 0; i < nodo.Claves.Count; i++)
-        {
-            if (i > 0)
-                dot.Append("|");
-            dot.Append($"<f{i}> |Id: {nodo.Claves[i].Id}, |Id Servicio: {nodo.Claves[i].IdServicio}, Total: {nodo.Claves[i].Total}|");
-        }
-        //dot.AppendLine($"{nodo.Claves[1].Id} [ label=\" ID Servicio: {nodo.Claves[1].IdServicio} \\n Total: {nodo.Claves[1].Total}];");
+    if (nodo.Izquierdo != null)
+    {
+        string hijoIzqId = "node" + nodo.Izquierdo.GetHashCode().ToString();
+        dot.AppendLine($"  {nodoId} -> {hijoIzqId};");
+        GenerarDOTMerkle(nodo.Izquierdo, ref dot);
+    }
 
-         if (nodo.Claves.Count > 0)
-            dot.Append($"<f{nodo.Claves.Count}>");
-            dot.Append("\"];");
+    if (nodo.Derecho != null)
+    {
+        string hijoDerId = "node" + nodo.Derecho.GetHashCode().ToString();
+        dot.AppendLine($"  {nodoId} -> {hijoDerId};");
+        GenerarDOTMerkle(nodo.Derecho, ref dot);
+    }
+}
 
-        if (!nodo.EsHoja)
-        {
-            for (int i = 0; i < nodo.Hijos.Count; i++)
-            {
-                string hijoID = nodo.Hijos[i].GetHashCode().ToString();
-                dot.AppendLine($"{nodoID} -> {hijoID};");
 
-                GenerarDOTArbolB(nodo.Hijos[i], ref dot);
-            }
-        }
-    }*/
+
+
+
+
 
     public void archivoGrafica(string ruta, string guardar, string contenido){
 

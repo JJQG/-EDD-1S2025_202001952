@@ -11,6 +11,7 @@ public class Block
     public string Correo { get; set; }
     public int Edad { get; set; }
     public string Contrasenia { get; set; }
+    public ListaDoble carros {get; set;}
 
     public string Timestamp { get; set; }
 

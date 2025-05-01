@@ -1,3 +1,8 @@
 digraph G {
   rankdir=TB;
+  1 [label="ID: 1\n Vehiculo: 452 || Repuesto: 4 \n  452\n Costos: 452"shape=box];
+    1 -> 2;
+  2 [label="ID: 2\n Vehiculo: 2 || Repuesto: 2 \n  452\n Costos: 452"shape=box];
+    2 -> 3;
+  3 [label="ID: 3\n Vehiculo: 3 || Repuesto: 3 \n  452\n Costos: 452"shape=box];
 }

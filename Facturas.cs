@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using Newtonsoft.Json; 
 
 public class Facturas{
 
@@ -14,12 +15,12 @@ public class Facturas{
 
     }
 
-     public string GetHash()
+     public string getHash()
         {
-         //   string data = JsonConvert.SerializeObject(this); // Serializar la factura a JSON
+            string data = JsonConvert.SerializeObject(this); 
             using (SHA256 sha256 = SHA256.Create())
             {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes("data"));
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(data));
                 StringBuilder builder = new StringBuilder();
                 foreach (byte b in bytes)
                 {

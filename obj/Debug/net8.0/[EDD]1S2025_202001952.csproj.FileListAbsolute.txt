@@ -46,3 +46,4 @@
 /home/jj/Escritorio/lab EDD/Edd_proyecto3/-EDD-1S2025_202001952/obj/Debug/net8.0/[EDD]1S2025_202001952.pdb
 /home/jj/Escritorio/lab EDD/Edd_proyecto3/-EDD-1S2025_202001952/obj/Debug/net8.0/[EDD]1S2025_202001952.genruntimeconfig.cache
 /home/jj/Escritorio/lab EDD/Edd_proyecto3/-EDD-1S2025_202001952/obj/Debug/net8.0/ref/[EDD]1S2025_202001952.dll
+/home/jj/Escritorio/lab EDD/Edd_proyecto3/-EDD-1S2025_202001952/bin/Debug/net8.0/Newtonsoft.Json.dll

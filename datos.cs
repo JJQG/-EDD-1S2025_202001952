@@ -70,11 +70,11 @@ public void VehiculosMasivos(ListaDoble d)
         //g.graficosABB(bus);
     }
 
-    /*public void generarFactura(ArbolB b ,int id, int IdServicio, double Total){
+    public void generarFactura(ArbolMerkle b ,int id, int IdServicio, double Total){
         
         b.Insertar( id,  IdServicio,  Total );
         //g.graficosABB(b);
-    }*/
+    }
 
     
 }

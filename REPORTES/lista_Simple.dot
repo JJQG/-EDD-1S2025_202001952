@@ -1,86 +1,86 @@
 digraph ListaSimplementeEnlazada{
   rankdir=LR;
   node0 [label="INDEX: 11
-Time Stamp: 29-04-25::14:57:36
-DATA: {ID: 12, Nombre: pedro, Correo: pedro@dfa, Edad: 36} 
-Nonce: 56710
-Prev Hash: 00005339bb454c8556f5d0e458c70abf75a005cec65012e7423f07a41dbc74fe
-HASH: 0000b5e1b50ecdba419415e822ed360a5c10897a689065bff34ddbb2377c86fd" shape = box];
+Time Stamp: 01-05-25::01:42:29
+DATA: {ID: 11, Nombre: Pepe, Correo: pepe.alc@, Edad: 20} 
+Nonce: 61680
+Prev Hash: 00001ae8570b078691b626408a4152a5cac8af3d89deb008530ea38c1688aa7d
+HASH: 00006764a7df110ee4f3d3a37549db5d25b1bfccb147de2065181cfb9650057a" shape = box];
   node0 -> node1;
   node1 [label="INDEX: 10
-Time Stamp: 29-04-25::14:56:11
-DATA: {ID: 10, Nombre: Isabel Cristina, Correo: isabel.cristina@usac.com, Edad: 40} 
-Nonce: 23441
-Prev Hash: 00005a459b7881eec4b4a2f32a52c6e7afab0c0c03366fe1416d54f739856008
-HASH: 00005339bb454c8556f5d0e458c70abf75a005cec65012e7423f07a41dbc74fe" shape = box];
+Time Stamp: 01-05-25::01:42:29
+DATA: {ID: 1, Nombre: Carlos Alberto, Correo: carlos.alberto@usac.com, Edad: 16} 
+Nonce: 28806
+Prev Hash: 00001868bd7fc8b22eb2296f6ac2459f46d638611e4e3af084852e53b8cb36e7
+HASH: 00001ae8570b078691b626408a4152a5cac8af3d89deb008530ea38c1688aa7d" shape = box];
   node1 -> node2;
   node2 [label="INDEX: 9
-Time Stamp: 29-04-25::14:56:09
-DATA: {ID: 9, Nombre: Rafael Alejandro, Correo: rafael.alejandro@usac.com, Edad: 20} 
-Nonce: 124914
-Prev Hash: 00000014015803a2feb3b24e43f5ea7ba26256cc6f362ddb94452ae81404ec6d
-HASH: 00005a459b7881eec4b4a2f32a52c6e7afab0c0c03366fe1416d54f739856008" shape = box];
+Time Stamp: 01-05-25::01:42:29
+DATA: {ID: 2, Nombre: Ana Lucia, Correo: ana.lucia@usac.com, Edad: 39} 
+Nonce: 2833
+Prev Hash: 0000683403335968f508480bc239b04f5a2c454f0320bd026eeccfe5fda35b3e
+HASH: 00001868bd7fc8b22eb2296f6ac2459f46d638611e4e3af084852e53b8cb36e7" shape = box];
   node2 -> node3;
   node3 [label="INDEX: 8
-Time Stamp: 29-04-25::14:56:07
-DATA: {ID: 8, Nombre: Laura Isabel, Correo: laura.isabel@usac.com, Edad: 18} 
-Nonce: 48783
-Prev Hash: 0000f1e8bcec78aeec7ff1cc6f3b3a7d44a3e2ba2eda78f7789348942f88a1a8
-HASH: 00000014015803a2feb3b24e43f5ea7ba26256cc6f362ddb94452ae81404ec6d" shape = box];
+Time Stamp: 01-05-25::01:42:28
+DATA: {ID: 3, Nombre: Luis Enrique, Correo: luis.enrique@usac.com, Edad: 50} 
+Nonce: 4258
+Prev Hash: 0000d7bc483b2c690a8f5c1c7bb52282ca608df12f7a27488117a49a85fd9f42
+HASH: 0000683403335968f508480bc239b04f5a2c454f0320bd026eeccfe5fda35b3e" shape = box];
   node3 -> node4;
   node4 [label="INDEX: 7
-Time Stamp: 29-04-25::14:56:06
-DATA: {ID: 7, Nombre: Pedro Pablo, Correo: pedro.pablo@usac.com, Edad: 32} 
-Nonce: 34352
-Prev Hash: 0000b1acee5262475091b2729f94e9091433a5a1bfe623e3f83101fb8afba56b
-HASH: 0000f1e8bcec78aeec7ff1cc6f3b3a7d44a3e2ba2eda78f7789348942f88a1a8" shape = box];
+Time Stamp: 01-05-25::01:42:28
+DATA: {ID: 4, Nombre: Marta Isabel, Correo: marta.isabel@usac.com, Edad: 60} 
+Nonce: 4644
+Prev Hash: 0000559fd2a1b74c968ea617a42dad32f1b22b291ac2bdc6a6ff6a3bbc1b3875
+HASH: 0000d7bc483b2c690a8f5c1c7bb52282ca608df12f7a27488117a49a85fd9f42" shape = box];
   node4 -> node5;
   node5 [label="INDEX: 6
-Time Stamp: 29-04-25::14:56:05
-DATA: {ID: 6, Nombre: Maria Fernanda, Correo: maria.fernanda@usac.com, Edad: 39} 
-Nonce: 46844
-Prev Hash: 00000d55d428f83e3c78d3003d612ee8890cb2458bf3f6e4e37d840236a28652
-HASH: 0000b1acee5262475091b2729f94e9091433a5a1bfe623e3f83101fb8afba56b" shape = box];
+Time Stamp: 01-05-25::01:42:27
+DATA: {ID: 5, Nombre: Juan Carlos, Correo: juan.carlos@usac.com, Edad: 46} 
+Nonce: 65566
+Prev Hash: 0000123badc8160f7e5f817ae1c2f6d4675ab24511538aa1e426c5c0bdbf3089
+HASH: 0000559fd2a1b74c968ea617a42dad32f1b22b291ac2bdc6a6ff6a3bbc1b3875" shape = box];
   node5 -> node6;
   node6 [label="INDEX: 5
-Time Stamp: 29-04-25::14:56:03
-DATA: {ID: 5, Nombre: Juan Carlos, Correo: juan.carlos@usac.com, Edad: 46} 
-Nonce: 114358
-Prev Hash: 0000cbe7624f83694aa76912e38eae0c14d3fe902a127cf83738a0417639ced7
-HASH: 00000d55d428f83e3c78d3003d612ee8890cb2458bf3f6e4e37d840236a28652" shape = box];
+Time Stamp: 01-05-25::01:42:25
+DATA: {ID: 6, Nombre: Maria Fernanda, Correo: maria.fernanda@usac.com, Edad: 39} 
+Nonce: 69671
+Prev Hash: 000004b576f45e33c397c9dc0edeaeb4884889b57cb0bc2d0876796b0a2dc09f
+HASH: 0000123badc8160f7e5f817ae1c2f6d4675ab24511538aa1e426c5c0bdbf3089" shape = box];
   node6 -> node7;
   node7 [label="INDEX: 4
-Time Stamp: 29-04-25::14:55:59
-DATA: {ID: 4, Nombre: Marta Isabel, Correo: marta.isabel@usac.com, Edad: 60} 
-Nonce: 163112
-Prev Hash: 000041fbbe5cdd0c0b6288eaf2cdeb4b92335af3d49274368d66518af9f2269d
-HASH: 0000cbe7624f83694aa76912e38eae0c14d3fe902a127cf83738a0417639ced7" shape = box];
+Time Stamp: 01-05-25::01:42:24
+DATA: {ID: 7, Nombre: Pedro Pablo, Correo: pedro.pablo@usac.com, Edad: 32} 
+Nonce: 42894
+Prev Hash: 00007d1f3fdd3134db09adc22cd0de4b772d40654cc6f387bbc2c38ea1800229
+HASH: 000004b576f45e33c397c9dc0edeaeb4884889b57cb0bc2d0876796b0a2dc09f" shape = box];
   node7 -> node8;
   node8 [label="INDEX: 3
-Time Stamp: 29-04-25::14:55:59
-DATA: {ID: 3, Nombre: Luis Enrique, Correo: luis.enrique@usac.com, Edad: 50} 
-Nonce: 12974
-Prev Hash: 0000be20cee867abafc98a98b16cc28a50725a23bf714c2289717eeceb9edb12
-HASH: 000041fbbe5cdd0c0b6288eaf2cdeb4b92335af3d49274368d66518af9f2269d" shape = box];
+Time Stamp: 01-05-25::01:42:22
+DATA: {ID: 8, Nombre: Laura Isabel, Correo: laura.isabel@usac.com, Edad: 18} 
+Nonce: 66551
+Prev Hash: 0000820203f391a616b68459191cca3f1d6567b5708b81dd56d8627f14e9e1d0
+HASH: 00007d1f3fdd3134db09adc22cd0de4b772d40654cc6f387bbc2c38ea1800229" shape = box];
   node8 -> node9;
   node9 [label="INDEX: 2
-Time Stamp: 29-04-25::14:55:58
-DATA: {ID: 2, Nombre: Ana Lucia, Correo: ana.lucia@usac.com, Edad: 39} 
-Nonce: 45394
-Prev Hash: 000066933447c2de2cd0d51cebc4958b2d6251b36a454771348fd63152ffe6c2
-HASH: 0000be20cee867abafc98a98b16cc28a50725a23bf714c2289717eeceb9edb12" shape = box];
+Time Stamp: 01-05-25::01:42:20
+DATA: {ID: 9, Nombre: Rafael Alejandro, Correo: rafael.alejandro@usac.com, Edad: 20} 
+Nonce: 78755
+Prev Hash: 00003c0ee0e0c50e2039d6db4a050c32acede1bb99ccc21ca09061f5f3233c48
+HASH: 0000820203f391a616b68459191cca3f1d6567b5708b81dd56d8627f14e9e1d0" shape = box];
   node9 -> node10;
   node10 [label="INDEX: 1
-Time Stamp: 29-04-25::14:55:57
-DATA: {ID: 1, Nombre: Carlos Alberto, Correo: carlos.alberto@usac.com, Edad: 16} 
-Nonce: 13751
-Prev Hash: 0000a7aff6456c244633883f973efe0e8432bea9b5d0e5da1b5d0e7f19071c3b
-HASH: 000066933447c2de2cd0d51cebc4958b2d6251b36a454771348fd63152ffe6c2" shape = box];
+Time Stamp: 01-05-25::01:42:19
+DATA: {ID: 10, Nombre: Isabel Cristina, Correo: isabel.cristina@usac.com, Edad: 40} 
+Nonce: 39563
+Prev Hash: 0000934c6ad3b0533a1986f68349fd7cebd0b1a40e593b9a1d8abae7e18aa55f
+HASH: 00003c0ee0e0c50e2039d6db4a050c32acede1bb99ccc21ca09061f5f3233c48" shape = box];
   node10 -> node11;
   node11 [label="INDEX: 0
-Time Stamp: 29-04-25::14:55:52
-DATA: {ID: 11, Nombre: Pepe, Correo: pepe.alc@, Edad: 20} 
-Nonce: 183799
+Time Stamp: 01-05-25::01:42:18
+DATA: {ID: 12, Nombre: pedro, Correo: pedro@dfa, Edad: 36} 
+Nonce: 33240
 Prev Hash: 0000
-HASH: 0000a7aff6456c244633883f973efe0e8432bea9b5d0e5da1b5d0e7f19071c3b" shape = box];
+HASH: 0000934c6ad3b0533a1986f68349fd7cebd0b1a40e593b9a1d8abae7e18aa55f" shape = box];
 }

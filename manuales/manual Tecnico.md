@@ -42,7 +42,7 @@ Entre las listas se encuentran:
  - Arboles B
 
 # Listas simplemente enlazadas
-estas listas tienen como nodo la clase **Nodo.cs** esta almacena los datos de un los **Usuarios**, de esa forma se puede decir que cada nodo es un vehiculo al crearlos de forma simultanea.
+estas listas tienen como nodo la clase **Block.cs** esta almacena los datos de un los **Usuarios**, de esa forma se puede decir que cada nodo es un usuario al crearlos de forma simultanea, ademas para la proteccion de los datos de los usuarios se implemento el uso de Blockchain, este se encarga de encriptar las contrasenas de los usuarios para que sea mas complicado para los hackers obtenerlas.
 
 *imagen del Nodo*
 

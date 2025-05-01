@@ -10,6 +10,8 @@ public class ListaDoble
     public NodoD cabeza;
     public NodoD cola;
 
+    public Blockchain carro;
+
     public ListaDoble()
     {
         cabeza = null;
@@ -23,8 +25,11 @@ public class ListaDoble
 
         if(Buscar(id)){
 
-            Console.WriteLine("Ya existe este usuario");
+            Console.WriteLine("Ya existe este vehiculo");
         }else{
+            if(!carro.Buscar(IdUsuario)){
+                Console.WriteLine("No existe este usuario");
+            }else{
         NodoD nuevoNodo = new NodoD(id , IdUsuario, Marca, Modelo,Placa);
         if (cola == null)
         {
@@ -37,7 +42,7 @@ public class ListaDoble
             nuevoNodo.Anterior = cola;
             cola = nuevoNodo;
         }
-        }
+        }}
     }
 
     public void Eliminar(int id)

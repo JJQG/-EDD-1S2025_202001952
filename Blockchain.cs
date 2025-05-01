@@ -12,7 +12,7 @@ public class Blockchain
    
     public Block insertar(int ID, string Nombres, string Apellidos, string Correo, int Edad, string Contrasenia){
 
-        Block newBlock = new Block(Size,  ID, Nombres, Apellidos, Correo, Edad, Contrasenia );
+        Block newBlock = new Block(Size,  ID, Nombres, Apellidos, Correo, Edad, Contrasenia);
 
         if(cabeza == null)
         {
@@ -53,12 +53,12 @@ public class Blockchain
         }
     }
 
-    public bool Buscar(int id, string Correo)
+    public bool Buscar(int id)
     {
         Block temp = cabeza;
         while (temp != null)
         {
-            if (temp.ID == id || temp.Correo == Correo)
+            if (temp.ID == id )
                 return true;
             temp = temp.siguiente;
         }
