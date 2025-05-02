@@ -78,7 +78,6 @@ public class graficar
 
     archivoGrafica("REPORTES/arbol_avl.dot", "REPORTES/arbol_avl.svg", dot.ToString());
 }
-//recursividad
 private void GenerarDotArbolAVL(NodoAVL nodo, ref StringBuilder dot)
 {
     if (nodo == null)
@@ -87,7 +86,7 @@ private void GenerarDotArbolAVL(NodoAVL nodo, ref StringBuilder dot)
   
     dot.AppendLine($"  {nodo.ID} [label=\"ID: {nodo.ID}\\nRepuesto: {nodo.repuesto}\\nCosto: {nodo.costo}\" shape=box];");
 
-    // conectar nodo izquierdo
+
     if (nodo.Izquierdo != null)
     {
         dot.AppendLine($"  {nodo.ID} -> {nodo.Izquierdo.ID};");
@@ -131,68 +130,53 @@ private void GenerarDOTArbolBB(NodoBB nodo, ref StringBuilder dot)
     {
         dot.AppendLine($"    {nodo.ID} -> {nodo.Derecha.ID};");
          GenerarDOTArbolBB(nodo.Derecha, ref dot);
-    }
-
-    
-   
+    }  
 }
 
-
-
-    public void graficosM(ArbolMerkle arbol) {
-
+   public void graficosM(ArbolMerkle arbol)
+{
     StringBuilder dot = new StringBuilder();
-    dot.AppendLine("digraph G {");
-    dot.AppendLine("node [shape=record, style=filled, fillcolor=lightgray];");
+    int nodeId = 0;
+    Dictionary<NodoM, string> nodeNames = new Dictionary<NodoM, string>();
 
-    if (arbol.Root != null)
-    {
-        GenerarDOTMerkle(arbol.Root, ref dot);
-    }
+    dot.AppendLine("digraph Merkle {");
+    dot.AppendLine("    rankdir=BT;"); // Dirección de abajo hacia arriba
+    dot.AppendLine("    node [shape=box];");
+
+    if (arbol.raiz != null)
+        GenerarDOTArbolM(arbol.raiz, ref dot, ref nodeId, nodeNames);
 
     dot.AppendLine("}");
-    archivoGrafica("REPORTES/arbol_merkle.dot", "REPORTES/arbol_merkle.svg", dot.ToString());
-    }
 
+    archivoGrafica("REPORTES/arbol_m.dot", "REPORTES/arbol_m.svg", dot.ToString());
+}
 
-
-    private void GenerarDOTMerkle(NodoM nodo, ref StringBuilder dot)
+private void GenerarDOTArbolM(NodoM nodo, ref StringBuilder dot, ref int nodeId, Dictionary<NodoM, string> nodeNames)
 {
-    string nodoId = "node" + nodo.GetHashCode().ToString(); // ID único
+    if (nodo == null)
+        return;
 
-    string etiqueta = "";
+    string currentId = $"nodo{nodeId++}";
+    nodeNames[nodo] = currentId;
 
-    if (nodo.f != null)
-    {
-        etiqueta = $"ID: {nodo.f.Id}\\nServicio: {nodo.f.IdServicio}\\nTotal: {nodo.f.Total}\\nHash: {nodo.Hash}";
-    }
-    else
-    {
-        etiqueta = $"Hash: {nodo.Hash}";
-    }
+    string label = nodo.f != null
+        ? $"Factura ID: {nodo.f.Id}\\nHash: {nodo.Hash.Substring(0, 8)}..."
+        : $"Hash: {nodo.Hash.Substring(0, 8)}...";
 
-    dot.AppendLine($"  {nodoId} [label=\"{etiqueta}\"];");
+    dot.AppendLine($"    {currentId} [label=\"{label}\"];");
 
     if (nodo.Izquierdo != null)
     {
-        string hijoIzqId = "node" + nodo.Izquierdo.GetHashCode().ToString();
-        dot.AppendLine($"  {nodoId} -> {hijoIzqId};");
-        GenerarDOTMerkle(nodo.Izquierdo, ref dot);
+        GenerarDOTArbolM(nodo.Izquierdo, ref dot, ref nodeId, nodeNames);
+        dot.AppendLine($"    {nodeNames[nodo.Izquierdo]} -> {currentId};"); // invertida
     }
 
     if (nodo.Derecho != null)
     {
-        string hijoDerId = "node" + nodo.Derecho.GetHashCode().ToString();
-        dot.AppendLine($"  {nodoId} -> {hijoDerId};");
-        GenerarDOTMerkle(nodo.Derecho, ref dot);
+        GenerarDOTArbolM(nodo.Derecho, ref dot, ref nodeId, nodeNames);
+        dot.AppendLine($"    {nodeNames[nodo.Derecho]} -> {currentId};"); // invertida
     }
 }
-
-
-
-
-
-
 
     public void archivoGrafica(string ruta, string guardar, string contenido){
 

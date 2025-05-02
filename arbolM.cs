@@ -5,16 +5,16 @@ public class ArbolMerkle
     {
 
         public List<NodoM> Leaves;
-        public NodoM Root;
+        public NodoM raiz;
 
         public ArbolMerkle()
         {
             Leaves = new List<NodoM>();
-            Root = null;
+            raiz = null;
         }
 
 
-        public void Insertar(int id, int id_servicio, double total)
+        public void Insertar(int id, int id_servicio, double total, string metodo)
         {
             foreach(var leaf in Leaves)
             {
@@ -24,7 +24,7 @@ public class ArbolMerkle
                 }
             }
 
-            Facturas f = new Facturas(id, id_servicio, total);
+            Facturas f = new Facturas(id, id_servicio, total, metodo);
 
             NodoM newLeaf = new NodoM(f);
             Leaves.Add(newLeaf);
@@ -38,7 +38,7 @@ public class ArbolMerkle
         {
             if(Leaves.Count == 0)
             {
-                Root = null;
+                raiz = null;
                 return;
             }
 
@@ -63,7 +63,7 @@ public class ArbolMerkle
                 currentLevel = nextLevel;
             }
 
-            Root = currentLevel[0];
+            raiz = currentLevel[0];
 
         }
 

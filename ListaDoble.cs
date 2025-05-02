@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.Json;
 
 
@@ -10,7 +11,7 @@ public class ListaDoble
     public NodoD cabeza;
     public NodoD cola;
 
-    public Blockchain carro;
+    public Huffman compresor = new Huffman();
 
     public ListaDoble()
     {
@@ -27,9 +28,7 @@ public class ListaDoble
 
             Console.WriteLine("Ya existe este vehiculo");
         }else{
-            if(!carro.Buscar(IdUsuario)){
-                Console.WriteLine("No existe este usuario");
-            }else{
+            
         NodoD nuevoNodo = new NodoD(id , IdUsuario, Marca, Modelo,Placa);
         if (cola == null)
         {
@@ -42,7 +41,7 @@ public class ListaDoble
             nuevoNodo.Anterior = cola;
             cola = nuevoNodo;
         }
-        }}
+        }
     }
 
     public void Eliminar(int id)
@@ -134,6 +133,17 @@ public class ListaDoble
         File.WriteAllText(rutaArchivo, jsonString);
     }
 
+
+    public void GuardarArchivoComprimido(string rutaArchivoEdd)
+{
+    List<NodoDSerializado> listaSerializable = getLista();
+    string jsonString = JsonSerializer.Serialize(listaSerializable);
+    string contenidoConTabla = compresor.ComprimirConTabla(jsonString);
+    File.WriteAllText(rutaArchivoEdd, contenidoConTabla);
+}
+
+
+
     public void CargarDesdeArchivoJson(string rutaArchivo)
     {
         if (File.Exists(rutaArchivo))
@@ -150,6 +160,28 @@ public class ListaDoble
             Console.WriteLine("El archivo no existe.");
         }
     }
+
+        
+
+  public void CargarDesdeArchivoEdd(string rutaArchivo){
+    
+    if (File.Exists(rutaArchivo))
+    {
+        string contenido = File.ReadAllText(rutaArchivo);
+        string jsonDescomprimido = compresor.DescomprimirConTabla(contenido);
+
+        List<NodoDSerializado> listaSerializable = JsonSerializer.Deserialize<List<NodoDSerializado>>(jsonDescomprimido);
+        foreach (var nodo in listaSerializable)
+        {
+            Insertar(nodo.ID, nodo.ID_Usuario, nodo.Marca, nodo.Modelo, nodo.Placa);
+        }
+    }
+    else
+    {
+        Console.WriteLine("El archivo no existe.");
+    }
+}
+
 
     public void Imprimir()
     {

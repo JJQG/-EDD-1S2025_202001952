@@ -18,8 +18,8 @@ class Program
     static void Main()
     {
         l.CargarDesdeArchivoJson("archivosJson/listaSimple.json");
-        d.CargarDesdeArchivoJson("archivosJson/listaDoble.json");
-        a.CargarDesdeArchivoJson("archivosJson/arbolAVL.json");
+        d.CargarDesdeArchivoEdd("archivosJson/listaDoble.edd");
+        a.CargarDesdeArchivoEdd("archivosJson/arbolAVL.edd");
         bus.CargarDesdeArchivoJson("archivosJson/arbolBB.json");
 
         Application.Init();
@@ -69,7 +69,9 @@ class Program
     }
 
     public static void validar(string usu, string contra, Botones b){
-        if(usu == "" && contra == ""){
+
+        
+        if(usu == "admin@usac.com" && contra == "admint123"){
             b.abrir(menu());
             
    
@@ -472,7 +474,7 @@ public static Ventana generarServicio(){
 
         Botones b = new Botones("Ingreso Manual",100,50,200,550);
         b.Clicked += (sender, e) => da.generarServicio(bus,Int32.Parse(txtId.Text), Int32.Parse(txtNombre.Text), Int32.Parse(txtApellido.Text), txtCorreo.Text, Convert.ToDouble(txtContrasenia.Text));
-        b.Clicked += (sender, e) => da.generarFactura(m,Int32.Parse(txtId.Text),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text));
+        b.Clicked += (sender, e) => da.generarFactura(m,Int32.Parse(txtId.Text),Int32.Parse(txtId.Text),Convert.ToDouble(txtContrasenia.Text), "");
 
         fix.Put(txtId, txtId.x,txtId.y);
         fix.Put(txtNombre, txtNombre.x,txtNombre.y);
@@ -730,5 +732,8 @@ public static Ventana visualizarFacturas(){
 
     return GestionUsuarios;
 }
+
+
+
 
 }

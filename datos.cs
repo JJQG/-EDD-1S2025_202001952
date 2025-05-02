@@ -39,14 +39,16 @@ public void VehiculosMasivos(ListaDoble d)
         string filePath = le.leer();
 
         d.CargarDesdeArchivoJson(filePath);
-        d.GuardarEnArchivoJson("archivosJson/listaDoble.json");
+        d.GuardarArchivoComprimido("archivosJson/listaDoble.edd");
+       // d.GuardarEnArchivoJson("archivosJson/listaDoble.json");
           //g.graficosDobles(d);
     }
 
     public void crearVehiculo(ListaDoble d ,int id, int IdUsuario, string marca, int modelo,string placa){
         
         d.Insertar(id, IdUsuario,marca, modelo, placa);
-        d.GuardarEnArchivoJson("archivosJson/listaDoble.json");
+        d.GuardarArchivoComprimido("archivosJson/listaDoble.edd");
+      //  d.GuardarEnArchivoJson("archivosJson/listaDoble.json");
         //g.graficosDobles(d);
         //l.Imprimir();
         //dotnet Console.WriteLine("hola");
@@ -59,7 +61,8 @@ public void VehiculosMasivos(ListaDoble d)
         string filePath = le.leer();
 
         a.CargarDesdeArchivoJson(filePath);
-        a.GuardarEnArchivoJson("archivosJson/arbolAVL.json");
+        a.GuardarArchivoComprimido("archivosJson/arbolAVL.edd");
+       // a.GuardarEnArchivoJson("archivosJson/arbolAVL.json");
          // g.graficosAVL(a);
     }
 
@@ -70,9 +73,9 @@ public void VehiculosMasivos(ListaDoble d)
         //g.graficosABB(bus);
     }
 
-    public void generarFactura(ArbolMerkle b ,int id, int IdServicio, double Total){
+    public void generarFactura(ArbolMerkle b ,int id, int IdServicio, double Total, string metodo){
         
-        b.Insertar( id,  IdServicio,  Total );
+        b.Insertar( id,  IdServicio,  Total ,metodo);
         //g.graficosABB(b);
     }
 

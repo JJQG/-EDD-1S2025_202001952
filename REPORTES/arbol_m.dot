@@ -1,0 +1,15 @@
+digraph MerkleTree {
+    rankdir=BT;
+    node [shape=box];
+    nodo0 [label="Hash: 30eb8a3d..."];
+    nodo1 [label="Hash: 3a47b9cf..."];
+    nodo2 [label="Factura ID: 1\nHash: f3d02462..."];
+    nodo2 -> nodo1;
+    nodo3 [label="Factura ID: 2\nHash: c7891de6..."];
+    nodo3 -> nodo1;
+    nodo1 -> nodo0;
+    nodo4 [label="Hash: d7064683..."];
+    nodo5 [label="Factura ID: 3\nHash: 5e3159ec..."];
+    nodo5 -> nodo4;
+    nodo4 -> nodo0;
+}

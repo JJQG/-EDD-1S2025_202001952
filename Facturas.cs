@@ -8,10 +8,14 @@ public class Facturas{
     public int Id {get; set;}
     public int IdServicio {get; set;}
     public double Total {get; set;}
-    public Facturas(int Id, int IdServicio, double Total){
+    public string metodo {get; set;}
+    public string fecha {get; set;}
+    public Facturas(int Id, int IdServicio, double Total, string metodo){
         this.Id = Id;
         this.IdServicio = IdServicio;
         this.Total = Total;
+        this.metodo = metodo;
+        fecha = "";
 
     }
 

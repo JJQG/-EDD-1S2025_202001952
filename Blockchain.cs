@@ -67,6 +67,23 @@ public class Blockchain
 
     public bool Ingresar(string nom, string contra)
     {
+
+      /*  Block usu = Buscar(nom);
+            
+
+            if(usu != null)
+            {
+                Console.WriteLine(usu.Contrasenia);
+               
+                string contrasena= Block.gSHA256(contra);
+                Console.WriteLine(contrasena);
+
+                if(contrasena == usu.Contrasenia)
+                {
+                     return true;
+                }
+
+            }*/
         Block temp = cabeza;
         while (temp != null)
         {

@@ -11,7 +11,6 @@ public class Block
     public string Correo { get; set; }
     public int Edad { get; set; }
     public string Contrasenia { get; set; }
-    public ListaDoble carros {get; set;}
 
     public string Timestamp { get; set; }
 
@@ -44,6 +43,7 @@ public class Block
 
 
     public string getSHA256(){
+            Contrasenia = gSHA256(Contrasenia);
             string input = Index.ToString() + Timestamp + ID.ToString()+ Nombres+Apellidos+ Correo+ Edad.ToString()+ Contrasenia + Nonce.ToString() + ultimoHash;
        
             SHA256 sha256 = SHA256.Create();
@@ -65,6 +65,17 @@ public class Block
         }
         return hash;
     }
+
+    public static string gSHA256(string str){
+            
+            SHA256 sha256 = SHA256.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+  }
 
   
 }

@@ -11,6 +11,7 @@ public class ArbolAVL
     public NodoAVL raiz;
     public string texto;
     public List<NodoAVLSerializado> listaSerializable = new List<NodoAVLSerializado>();
+    public Huffman compresor = new Huffman();
 
     public void Insertar(int id, string repuesto, string detalles, double costo)
     {
@@ -172,6 +173,34 @@ public List<NodoAVLSerializado> getLista()
         string jsonString = JsonSerializer.Serialize(listaSerializable);
         File.WriteAllText(rutaArchivo, jsonString);
     }
+
+    public void GuardarArchivoComprimido(string rutaArchivoEdd) {
+
+        List<NodoAVLSerializado> listaSerializable = getLista();
+        string jsonString = JsonSerializer.Serialize(listaSerializable);
+        
+        string contenidoConTabla = compresor.ComprimirConTabla(jsonString);
+        File.WriteAllText(rutaArchivoEdd, contenidoConTabla);
+}
+
+    public void CargarDesdeArchivoEdd(string rutaArchivo) {
+
+    if (File.Exists(rutaArchivo))
+    {
+        string contenido = File.ReadAllText(rutaArchivo);
+        string jsonDescomprimido = compresor.DescomprimirConTabla(contenido);
+
+        List<NodoAVLSerializado> listaSerializable = JsonSerializer.Deserialize<List<NodoAVLSerializado>>(jsonDescomprimido);
+        foreach (var nodo in listaSerializable)
+        {
+            Insertar(nodo.ID, nodo.Repuesto, nodo.Detalles, nodo.Costo);
+        }
+    }
+    else
+    {
+        Console.WriteLine("El archivo no existe.");
+    }
+}
 
 ///////////////////////////////////IN///////////////////////////////////////////////////
     public void RecorridoInOrden(NodoAVL nodo)

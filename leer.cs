@@ -9,7 +9,8 @@ public class Leer
 {
     string archivoSeleccionado = ""; 
     public string leer()
-    {try
+    {
+        try
     {
     
 
@@ -44,7 +45,40 @@ public class Leer
     }
 
 
+    public string leerComprimido()
+    {
+        try
+    {
     
+
+        FileChooserDialog fileChooser = new FileChooserDialog(
+            "Selecciona un archivo .edd", null,FileChooserAction.Open, "Cancelar", ResponseType.Cancel,"Abrir", ResponseType.Accept);
+
+       
+        fileChooser.Filter = new FileFilter();
+        fileChooser.Filter.AddPattern("*.edd");
+
+        // Ejecutamos el diálogo
+        if (fileChooser.Run() == (int)ResponseType.Accept)
+        {
+           
+            archivoSeleccionado = fileChooser.Filename;
+            
+        }
+
+        fileChooser.Destroy();
+        fileChooser=null;
+   
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error: {ex.Message}");
+    
+    }
+
+        return archivoSeleccionado;
+
+    }
     
      
 }
